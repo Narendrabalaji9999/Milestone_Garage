@@ -406,3 +406,236 @@ export const CAR_HOTSPOTS: HotspotInfo[] = [
     symptoms: ['Check Engine Light illuminated', 'Rattling noise beneath vehicle'],
   },
 ];
+
+// Customer Success Stories from Hyderabad Car Owners
+export const HYDERABAD_TESTIMONIALS = [
+  {
+    id: 't-1',
+    name: 'Rajesh Varma',
+    area: 'Madhura Nagar, Hyderabad',
+    carModel: 'Hyundai Creta 1.4 Turbo',
+    rating: 5,
+    date: 'October 2026',
+    serviceDone: 'Periodic Maintenance + Brake Overhaul',
+    quote:
+      'My Creta had spongy brakes and sluggish pickup in Jubilee Hills traffic. Milestone Garage picked it up right from my apartment gate in Madhura Nagar. The live WhatsApp diagnostic video report with micrometer rotor measurements was 100% transparent. Delivered back like brand new with zero mess!',
+    verified: true,
+  },
+  {
+    id: 't-2',
+    name: 'Sneha Reddy',
+    area: 'Gachibowli Financial District',
+    carModel: 'Tata Nexon Petrol',
+    rating: 5,
+    date: 'October 2026',
+    serviceDone: 'AC Chilling Overhaul + Gas Refill',
+    quote:
+      'The AC was blowing warm air during peak 2 PM office commutes near Hitech City. Milestone’s certified technician tested for micro-leaks, flushed the condenser, and refilled R134a refrigerant. Total bill was 40% lower than the dealership quote, and AC chills in 2 minutes now.',
+    verified: true,
+  },
+  {
+    id: 't-3',
+    name: 'K. Venkat Rao',
+    area: 'Road No. 12, Banjara Hills',
+    carModel: 'Honda City 5th Gen (i-VTEC)',
+    rating: 5,
+    date: 'September 2026',
+    serviceDone: 'Engine Tune-Up & OBD-II Diagnostics',
+    quote:
+      'Had an intermittent check-engine warning on the Outer Ring Road. Milestone connected their computerized OBD-II scanner and showed me the oxygen sensor reading before touching a single bolt. Honest diagnosis, no pushy upsells, and sealed genuine parts.',
+    verified: true,
+  },
+  {
+    id: 't-4',
+    name: 'Mohammed Arif',
+    area: 'Ameerpet Main Road',
+    carModel: 'Maruti Suzuki Swift VXi',
+    rating: 5,
+    date: 'September 2026',
+    serviceDone: 'Clutch Assembly Replacement',
+    quote:
+      'Clutch pedal had become rock-hard after 48,000 km in Ameerpet traffic. The master mechanic explained every part replaced and handed back the old clutch plate and release bearing in a box. Car gear shifts are now buttery smooth.',
+    verified: true,
+  },
+  {
+    id: 't-5',
+    name: 'S. Lakshmi Narayan',
+    area: 'Kukatpally Housing Board',
+    carModel: 'Mahindra XUV700 AX7',
+    rating: 5,
+    date: 'August 2026',
+    serviceDone: '50-Point Pre-Trip Inspection & Battery',
+    quote:
+      'Needed a quick pre-trip road inspection before our family trip to Vijayawada. Within 30 minutes of booking, their van arrived with an Amaron battery and completed digital voltage load tests. Extremely courteous and professional team in Hyderabad.',
+    verified: true,
+  },
+  {
+    id: 't-6',
+    name: 'Dr. Pradeep Chander',
+    area: 'Jubilee Hills, Hyderabad',
+    carModel: 'Volkswagen Virtus GT 1.5',
+    rating: 5,
+    date: 'August 2026',
+    serviceDone: 'Brembo Ceramic Brakes & Mobil 1 5W-40',
+    quote:
+      'Dealership told me I had to leave the car for 3 days just for a brake pad replacement. Milestone completed the synthetic oil change and Brembo ceramic brake installation the very same day. Super clean workshop in Madhura Nagar!',
+    verified: true,
+  },
+];
+
+// Sample Live Tracking Database for "Track Your Service"
+export const SAMPLE_TRACKING_DATABASE: Record<string, any> = {
+  'MSG-482910': {
+    bookingId: 'MSG-482910',
+    customerName: 'Rajesh Varma',
+    vehicle: 'Hyundai Creta (Petrol 1.4)',
+    serviceType: 'Periodic Maintenance & Brake Overhaul',
+    pickupArea: 'Madhura Nagar, Hyderabad',
+    currentStage: 'Repairs Ongoing',
+    estimatedDelivery: 'Today by 05:30 PM',
+    assignedTechnician: 'Master Tech Santosh (ID #HYD-104)',
+    notes: 'Engine oil flushed. New Mann synthetic oil filter & Brembo pads currently being torqued.',
+    steps: [
+      {
+        stage: 'Received',
+        time: '09:15 AM',
+        details: 'Vehicle picked up from Madhura Nagar and checked in at workshop bay.',
+        completed: true,
+      },
+      {
+        stage: 'In Diagnostics',
+        time: '10:45 AM',
+        details: '50-point OBD-II computerized electronic diagnostic scan completed. Brake wear report verified.',
+        completed: true,
+      },
+      {
+        stage: 'Repairs Ongoing',
+        time: '01:20 PM',
+        details: 'Sealed synthetic oil change completed. Installing new Brembo ceramic brake pads to factory specs.',
+        completed: false,
+        current: true,
+      },
+      {
+        stage: 'Ready for Delivery',
+        time: 'Estimated 05:30 PM',
+        details: 'Final road test, electronic reset, waterless cleaning, and doorstep delivery.',
+        completed: false,
+      },
+    ],
+  },
+  'MSG-734892': {
+    bookingId: 'MSG-734892',
+    customerName: 'Sneha Reddy',
+    vehicle: 'Tata Nexon (Petrol 1.2)',
+    serviceType: 'AC Chilling Overhaul & Refrigerant Gas',
+    pickupArea: 'Gachibowli, Hyderabad',
+    currentStage: 'In Diagnostics',
+    estimatedDelivery: 'Today by 06:00 PM',
+    assignedTechnician: 'AC Specialist Vikram (ID #HYD-082)',
+    notes: 'AC condenser pressure test in progress. Checking expansion valve pressure.',
+    steps: [
+      {
+        stage: 'Received',
+        time: '11:00 AM',
+        details: 'Vehicle received at workshop via free doorstep pickup.',
+        completed: true,
+      },
+      {
+        stage: 'In Diagnostics',
+        time: '12:15 PM',
+        details: 'AC refrigerant pressure testing and nitrogen leak test underway.',
+        completed: false,
+        current: true,
+      },
+      {
+        stage: 'Repairs Ongoing',
+        time: 'Estimated 02:45 PM',
+        details: 'Condenser ultrasonic cleaning and R134a precision machine gas refill.',
+        completed: false,
+      },
+      {
+        stage: 'Ready for Delivery',
+        time: 'Estimated 06:00 PM',
+        details: 'Vent temperature thermometer check (<6°C target) and return dispatch.',
+        completed: false,
+      },
+    ],
+  },
+  'MSG-519284': {
+    bookingId: 'MSG-519284',
+    customerName: 'K. Venkat Rao',
+    vehicle: 'Honda City 5th Gen',
+    serviceType: 'Full Periodic Service & Wheel Alignment',
+    pickupArea: 'Banjara Hills, Hyderabad',
+    currentStage: 'Ready for Delivery',
+    estimatedDelivery: 'Ready Now (Out for Drop)',
+    assignedTechnician: 'Lead Mechanic Ramesh (ID #HYD-019)',
+    notes: 'All checks passed. Quality control manager signed off. Driver dispatched to customer address.',
+    steps: [
+      {
+        stage: 'Received',
+        time: '08:30 AM',
+        details: 'Vehicle checked in with initial 50-point inspection sheet.',
+        completed: true,
+      },
+      {
+        stage: 'In Diagnostics',
+        time: '09:40 AM',
+        details: 'OBD-II ECU scan passed with zero engine error codes.',
+        completed: true,
+      },
+      {
+        stage: 'Repairs Ongoing',
+        time: '11:30 AM',
+        details: 'Synthetic 5W-40 oil replaced, throttle body cleaned, 3D laser wheel alignment completed.',
+        completed: true,
+      },
+      {
+        stage: 'Ready for Delivery',
+        time: '02:15 PM',
+        details: 'Vehicle test drive approved. Sanitized and out for delivery to Banjara Hills.',
+        completed: true,
+        current: true,
+      },
+    ],
+  },
+  'MSG-892401': {
+    bookingId: 'MSG-892401',
+    customerName: 'Mohammed Arif',
+    vehicle: 'Maruti Suzuki Swift',
+    serviceType: 'Clutch Assembly & Gearbox Fluid',
+    pickupArea: 'Ameerpet, Hyderabad',
+    currentStage: 'Received',
+    estimatedDelivery: 'Tomorrow by 12:00 PM',
+    assignedTechnician: 'Transmission Master Naresh (ID #HYD-055)',
+    notes: 'Car safely arrived at Madhura Nagar garage bay. Initial technician inspection underway.',
+    steps: [
+      {
+        stage: 'Received',
+        time: '02:00 PM',
+        details: 'Vehicle received at Madhura Nagar workshop bay and job card registered.',
+        completed: false,
+        current: true,
+      },
+      {
+        stage: 'In Diagnostics',
+        time: 'Estimated 03:30 PM',
+        details: 'Clutch release bearing and flywheel play measurement.',
+        completed: false,
+      },
+      {
+        stage: 'Repairs Ongoing',
+        time: 'Estimated 05:00 PM',
+        details: 'Genuine Valeo clutch plate and pressure plate installation.',
+        completed: false,
+      },
+      {
+        stage: 'Ready for Delivery',
+        time: 'Estimated Tomorrow 12:00 PM',
+        details: 'Road test calibration and doorstep handover.',
+        completed: false,
+      },
+    ],
+  },
+};
+

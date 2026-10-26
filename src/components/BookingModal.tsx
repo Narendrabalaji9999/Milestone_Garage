@@ -31,6 +31,7 @@ interface BookingModalProps {
   preselectedModel?: string;
   preselectedPhone?: string;
   preselectedArea?: string;
+  onBookingSuccess?: (bookingId: string, details: { vehicle: string; service: string }) => void;
 }
 
 export const BookingModal: React.FC<BookingModalProps> = ({
@@ -41,6 +42,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   preselectedModel,
   preselectedPhone,
   preselectedArea,
+  onBookingSuccess,
 }) => {
   const [formData, setFormData] = useState<BookingFormData>({
     customerName: '',
@@ -97,6 +99,13 @@ Please confirm my booking slot. Milestone Garage Madhura Nagar.`;
     const generatedId = `MSG-${Math.floor(100000 + Math.random() * 900000)}`;
     setBookingId(generatedId);
     setIsSubmitted(true);
+
+    if (onBookingSuccess) {
+      onBookingSuccess(generatedId, {
+        vehicle: `${formData.carBrand} ${formData.carModel}`,
+        service: selectedService.title,
+      });
+    }
 
     if (viaWhatsApp) {
       const url = createWhatsAppUrl(getFormattedWhatsAppMessage(generatedId));

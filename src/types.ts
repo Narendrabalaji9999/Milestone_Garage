@@ -85,6 +85,41 @@ export interface BookingFormData {
   serviceLocationType: 'doorstep' | 'workshop_pickup';
 }
 
+export interface TestimonialItem {
+  id: string;
+  name: string;
+  area: string;
+  carModel: string;
+  rating: number;
+  date: string;
+  serviceDone: string;
+  quote: string;
+  verified: boolean;
+}
+
+export type TrackingStage = 'Received' | 'In Diagnostics' | 'Repairs Ongoing' | 'Ready for Delivery';
+
+export interface TrackingStep {
+  stage: TrackingStage;
+  time: string;
+  details: string;
+  completed: boolean;
+  current?: boolean;
+}
+
+export interface TrackingRecord {
+  bookingId: string;
+  customerName: string;
+  vehicle: string;
+  serviceType: string;
+  pickupArea: string;
+  currentStage: TrackingStage;
+  estimatedDelivery: string;
+  assignedTechnician: string;
+  notes: string;
+  steps: TrackingStep[];
+}
+
 // Milestone Garage Contact Information
 export const WHATSAPP_PHONE_NUMBER = '9581142497';
 export const WHATSAPP_INTERNATIONAL = '+919581142497';

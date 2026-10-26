@@ -127,7 +127,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
         </div>
 
         {/* Zone 2: Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-6 text-xs font-bold text-slate-700">
+        <nav className="hidden xl:flex items-center gap-5 text-xs font-bold text-slate-700">
           <a href="#services" className="hover:text-blue-600 transition-colors whitespace-nowrap">
             Our Services
           </a>
@@ -137,11 +137,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           <a href="#studio-3d" className="hover:text-blue-600 transition-colors whitespace-nowrap">
             3D Studio
           </a>
+          <a href="#track-service" className="text-blue-600 font-extrabold hover:text-blue-700 transition-colors whitespace-nowrap flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+            <span>Track Service</span>
+          </a>
           <a href="#how-it-works" className="hover:text-blue-600 transition-colors whitespace-nowrap">
             How It Works
           </a>
           <a href="#price-list" className="hover:text-blue-600 transition-colors whitespace-nowrap">
             Price List 2026
+          </a>
+          <a href="#reviews" className="hover:text-blue-600 transition-colors whitespace-nowrap">
+            Customer Stories
           </a>
           <a href="#why-milestone" className="hover:text-blue-600 transition-colors whitespace-nowrap">
             Why Milestone
@@ -213,6 +220,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               3D Car Inspection
             </a>
             <a
+              href="#track-service"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 px-2 rounded-lg bg-blue-50 text-blue-700 font-bold flex items-center justify-between"
+            >
+              <span>Track Your Service</span>
+              <span className="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded-full font-mono">Live</span>
+            </a>
+            <a
               href="#how-it-works"
               onClick={() => setMobileMenuOpen(false)}
               className="py-1.5 px-2 rounded-lg hover:bg-blue-50 hover:text-blue-600"
@@ -225,6 +240,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               className="py-1.5 px-2 rounded-lg hover:bg-blue-50 hover:text-blue-600"
             >
               Car Services Price List (2026)
+            </a>
+            <a
+              href="#reviews"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 px-2 rounded-lg hover:bg-blue-50 hover:text-blue-600"
+            >
+              Customer Success Stories
             </a>
             <a
               href="#why-milestone"

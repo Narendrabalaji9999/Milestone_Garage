@@ -8,12 +8,16 @@ import { ThreeCarViewer } from './components/ThreeCarViewer';
 import { HowMilestoneWorks } from './components/HowMilestoneWorks';
 import { StatsCounterStrip } from './components/StatsCounterStrip';
 import { OEMBrandsStrip } from './components/OEMBrandsStrip';
+import { TrustCertifications } from './components/TrustCertifications';
+import { CustomerSuccessStories } from './components/CustomerSuccessStories';
+import { ServiceTracker } from './components/ServiceTracker';
 import { PriceListTable } from './components/PriceListTable';
 import { WhyMilestoneSection } from './components/WhyMilestoneSection';
 import { FAQSection } from './components/FAQSection';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
+import { Toast, ToastData } from './components/Toast';
 import { CuratedServiceItem, HotspotInfo, DISPLAY_PHONE, WHATSAPP_PHONE_NUMBER, createWhatsAppUrl } from './types';
 import { MessageCircle, PhoneCall, Sparkles } from 'lucide-react';
 
@@ -24,6 +28,8 @@ export default function App() {
   const [selectedModel, setSelectedModel] = useState<string>('Creta');
   const [enteredPhone, setEnteredPhone] = useState<string>('');
   const [selectedArea, setSelectedArea] = useState<string>('Hyderabad - Madhura Nagar');
+  const [activeToast, setActiveToast] = useState<ToastData | null>(null);
+  const [trackedBookingId, setTrackedBookingId] = useState<string>('MSG-482910');
 
   const handleOpenBooking = (serviceId?: string) => {
     if (serviceId) {
@@ -48,6 +54,22 @@ export default function App() {
   const handleSelectHotspotService = (hotspot: HotspotInfo) => {
     setSelectedServiceId(hotspot.servicePackageId);
     setIsBookingModalOpen(true);
+  };
+
+  const handleBookingConfirmed = (
+    bookingId: string,
+    details: { vehicle: string; service: string }
+  ) => {
+    setTrackedBookingId(bookingId);
+    setActiveToast({
+      id: Date.now().toString(),
+      title: 'Booking Confirmed!',
+      message: `Your service reservation is confirmed with Milestone Garage Madhura Nagar. Our service advisor will connect with you.`,
+      bookingId,
+      vehicle: details.vehicle,
+      service: details.service,
+      duration: 6500,
+    });
   };
 
   return (
@@ -112,28 +134,40 @@ export default function App() {
       {/* 7. How Milestone Works? (4-Step Process, matches image_e37a5d31.png) */}
       <HowMilestoneWorks />
 
-      {/* 8. Stats Counter Strip (Matches image_1526f609.png) */}
+      {/* 8. Live "Track Your Service" Component (4 Stages: Received -> In Diagnostics -> Repairs Ongoing -> Ready for Delivery) */}
+      <ServiceTracker
+        initialBookingId={trackedBookingId}
+        onOpenBooking={() => handleOpenBooking()}
+      />
+
+      {/* 9. Stats Counter Strip (Matches image_1526f609.png) */}
       <StatsCounterStrip />
 
-      {/* 9. Original Spare Parts Brand Strip (Matches image_ddc23a8e.png) */}
+      {/* 10. Original Spare Parts Brand Strip (Matches image_ddc23a8e.png) */}
       <OEMBrandsStrip />
 
-      {/* 10. Car Services Price List in Hyderabad 2026 Table (Matches image_2d86a9a5.png) */}
+      {/* 11. Trust & Certifications Section (Verified Technicians, Genuine Parts Warranty, Transparent Pricing) */}
+      <TrustCertifications />
+
+      {/* 12. Car Services Price List in Hyderabad 2026 Table (Matches image_2d86a9a5.png) */}
       <PriceListTable onBookService={(service) => handleOpenBooking()} />
 
-      {/* 11. Why Choose Milestone In Hyderabad & Top Services (Matches image_b7ed33af.png & image_46a29de8.png) */}
+      {/* 13. Customer Success Stories Carousel (Hyderabad Verified Reviews) */}
+      <CustomerSuccessStories onOpenBooking={() => handleOpenBooking()} />
+
+      {/* 14. Why Choose Milestone In Hyderabad & Top Services (Matches image_b7ed33af.png & image_46a29de8.png) */}
       <WhyMilestoneSection />
 
-      {/* 12. Common Car Service Questions In Hyderabad FAQ (Matches image_3620863d.png) */}
+      {/* 13. Common Car Service Questions In Hyderabad FAQ (Matches image_3620863d.png) */}
       <FAQSection />
 
-      {/* 13. Multi-Column Footer with Madhura Nagar Address & Contacts (Matches image_3c1c8414.png) */}
+      {/* 14. Multi-Column Footer with Madhura Nagar Address & Contacts (Matches image_3c1c8414.png) */}
       <Footer />
 
-      {/* 14. Pinned Floating WhatsApp Action Hub (+91 9581142497) */}
+      {/* 15. Pinned Floating WhatsApp Action Hub (+91 9581142497) */}
       <WhatsAppFloatingButton onOpenBooking={() => handleOpenBooking()} />
 
-      {/* 15. Doorstep Booking Modal */}
+      {/* 16. Doorstep Booking Modal with Toast Trigger on Submission */}
       <BookingModal
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
@@ -142,7 +176,11 @@ export default function App() {
         preselectedModel={selectedModel}
         preselectedPhone={enteredPhone}
         preselectedArea={selectedArea}
+        onBookingSuccess={handleBookingConfirmed}
       />
+
+      {/* 17. Toast Notification System */}
+      <Toast toast={activeToast} onClose={() => setActiveToast(null)} />
     </div>
   );
 }

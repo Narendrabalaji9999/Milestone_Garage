@@ -12,9 +12,12 @@ export const CategoryNavStrip: React.FC<CategoryNavStripProps> = () => {
     { id: 'services', label: 'Our Services', href: '#services' },
     { id: 'curated', label: 'Curated Custom Service', href: '#curated' },
     { id: 'studio-3d', label: '3D Car Studio', href: '#studio-3d' },
+    { id: 'track-service', label: 'Track Your Service', href: '#track-service' },
     { id: 'how-it-works', label: 'How Milestone Works?', href: '#how-it-works' },
+    { id: 'trust-certifications', label: 'Trust & Certifications', href: '#trust-certifications' },
     { id: 'price-list', label: 'Price List 2026', href: '#price-list' },
-    { id: 'why-milestone', label: 'Rating & Reviews', href: '#why-milestone' },
+    { id: 'reviews', label: 'Customer Stories', href: '#reviews' },
+    { id: 'why-milestone', label: 'Why Milestone', href: '#why-milestone' },
     { id: 'faqs', label: 'Frequently Asked Questions', href: '#faqs' },
   ];
 
